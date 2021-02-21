@@ -8,6 +8,7 @@ export default class Button extends Container {
   constructor() {
     super();
     this.name = 'button';
+    this.isOpened = false;
     this.init();
   }
 

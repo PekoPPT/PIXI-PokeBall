@@ -74,8 +74,8 @@ export default class Pokeball extends Container {
     const dummy = { value: 0 };
     const steps = gsap.to(dummy, {
       duration: 1,
-      ease: 'steps(100)',
-      value: 100,
+      ease: 'steps(70)',
+      value: 70,
       paused: true,
       onUpdate: () => {
         if (dummy.value !== prev) this.text.text = this._setRandomText();

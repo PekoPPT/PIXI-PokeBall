@@ -30,4 +30,12 @@ export default class Button extends Container {
     this.buttonText.y = 35;
     this.button.addChild(this.buttonText);
   }
+
+  hide() {
+    gsap.to(this, { alpha: 0, duration: 0.15 });
+  }
+
+  show() {
+    gsap.to(this, { alpha: 1, duration: 0.15 });
+  }
 }

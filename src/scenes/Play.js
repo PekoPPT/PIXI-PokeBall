@@ -19,11 +19,11 @@ export default class Play extends Scene {
     this.addChild(footer);
 
     ball.addListener('open_start', () => {
-      gsap.to(button, { alpha: 0, duration: 0.15 });
+      button.hide();
     });
 
     ball.addListener('close_start', () => {
-      gsap.to(button, { alpha: 1, duration: 0.15 });
+      button.show();
     });
 
     this.addChild(ball);

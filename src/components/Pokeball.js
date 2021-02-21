@@ -8,9 +8,7 @@ export default class Pokeball extends Container {
   constructor() {
     super();
     this.name = 'pokeball';
-    this.isOpened = false;
     this.init();
-
   }
 
   init() {
@@ -39,13 +37,10 @@ export default class Pokeball extends Container {
     this.emit(Pokeball.events.OPEN_START);
     const timeLine = new gsap.timeline();
 
-    timeLine.to(this.top, { y: -360, duration: 1, ease: Elastic.easeOut.config(0.3, 0.1) }, 'openAnimation');
-    timeLine.to(this.bottom, { y: 50, duration: 1, ease: Elastic.easeOut.config(0.3, 0.1) }, 'openAnimation');
+    timeLine.to(this.top, { y: -360, duration: 0.5, ease: Elastic.easeOut.config(0.3, 0.1) }, 'openAnimation');
+    timeLine.to(this.bottom, { y: 50, duration: 0.5, ease: Elastic.easeOut.config(0.3, 0.1) }, 'openAnimation');
 
     this.emit(Pokeball.events.OPEN_END);
-
-    this.isOpened = true;
-
     await this._shuffle();
     await this.close();
   }
@@ -54,10 +49,9 @@ export default class Pokeball extends Container {
     this.emit(Pokeball.events.CLOSE_START);
     const timeLine = new gsap.timeline();
 
-    timeLine.to(this.top, { y: -300, duration: 1, ease: Elastic.easeOut.config(0.3, 0.1) }, 'closeAnimation');
-    await timeLine.to(this.bottom, { y: -60, duration: 1, ease: Elastic.easeOut.config(0.3, 0.1) }, 'closeAnimation');
+    timeLine.to(this.top, { y: -300, duration: 0.5, ease: Elastic.easeOut.config(0.3, 0.1) }, 'closeAnimation');
+    await timeLine.to(this.bottom, { y: -60, duration: 0.5, ease: Elastic.easeOut.config(0.3, 0.1) }, 'closeAnimation');
     this.emit(Pokeball.events.CLOSE_END);
-    this.isOpened = false;
   }
 
   _setRandomText() {
@@ -83,7 +77,7 @@ export default class Pokeball extends Container {
       }
     });
 
-    await gsap.to(steps, { duration: 4, progress: 1, ease: 'circ.out' });
+    await gsap.to(steps, { duration: 3, progress: 1, ease: 'circ.out' });
     this.text.text = '';
   }
 }

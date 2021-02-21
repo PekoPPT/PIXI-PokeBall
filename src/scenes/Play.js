@@ -11,7 +11,8 @@ export default class Play extends Scene {
     const footer = new Footer();
     const ball = new Pokeball();
     const button = new Button();
-
+    button.interactive = true;
+    button.buttonMode = true;
 
     footer.x = - window.innerWidth / 2;
     footer.y = window.innerHeight / 2 - footer.height;

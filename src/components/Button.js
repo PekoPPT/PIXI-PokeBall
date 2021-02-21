@@ -1,5 +1,8 @@
 import { Container, Graphics, Text } from 'pixi.js';
 import gsap from 'gsap';
+import PixiPlugin from 'gsap/PixiPlugin';
+
+gsap.registerPlugin(PixiPlugin);
 
 export default class Button extends Container {
   constructor() {
@@ -8,7 +11,13 @@ export default class Button extends Container {
     this.init();
   }
 
+  /**
+   * Initializes the button 
+   *
+   * @memberof Button
+   */
   init() {
+    // Add Button Graphics 
     this.button = new Graphics(0, 0, 300, 50);
     this.button.lineStyle(0, 0xFF0000, 1);
     this.button.beginFill(0xFF0000, 1);
@@ -18,6 +27,7 @@ export default class Button extends Container {
     this.button.on('click', () => { this.emit('click'); });
     this.addChild(this.button);
 
+    // Add text for the Graphics
     this.buttonText = new Text('THROW BALL',
       {
         font: '12px Arial',
@@ -31,11 +41,21 @@ export default class Button extends Container {
     this.button.addChild(this.buttonText);
   }
 
+  /**
+   * Hides the button
+   *
+   * @memberof Button
+   */
   hide() {
-    gsap.to(this, { alpha: 0, duration: 0.15 });
+    gsap.to(this, { pixi: { alpha: 0 }, duration: 0.15 });
   }
 
+  /**
+   * Shows the button
+   *
+   * @memberof Button
+   */
   show() {
-    gsap.to(this, { alpha: 1, duration: 0.15 });
+    gsap.to(this, { pixi: { alpha: 1 }, duration: 0.15 });
   }
 }

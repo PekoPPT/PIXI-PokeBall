@@ -13,8 +13,6 @@ export default class Button extends Container {
     this.button.lineStyle(0, 0xFF0000, 1);
     this.button.beginFill(0xFF0000, 1);
     this.button.drawRect(0, 0, 300, 100);
-    this.button.interactive = true;
-    this.button.buttonMode = true;
     this.button.x = -120;
     this.button.y = 180;
     this.button.on('click', () => { this.emit('click'); });
@@ -34,10 +32,10 @@ export default class Button extends Container {
   }
 
   hide() {
-    gsap.to(this.button, { alpha: 0, duration: 0.5 });
+    gsap.to(this.button, { alpha: 0, duration: 0.15 });
   }
 
   show() {
-    gsap.to(this.button, { alpha: 1, duration: 0.5 });
+    gsap.to(this.button, { alpha: 1, duration: 0.15 });
   }
 }

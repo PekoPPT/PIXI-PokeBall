@@ -2,14 +2,35 @@ import { Sprite } from 'pixi.js';
 import Scene from './Scene';
 import gsap from 'gsap';
 import Footer from '../components/Footer';
+import Pokeball from '../components/Pokeball';
+import Button from '../components/Button';
 
 export default class Play extends Scene {
   async onCreated() {
 
     const footer = new Footer();
+    const ball = new Pokeball();
+    const button = new Button();
+
+
     footer.x = - window.innerWidth / 2;
     footer.y = window.innerHeight / 2 - footer.height;
     this.addChild(footer);
+
+    ball.addListener('open_start', () => {
+      button.hide();
+    });
+
+    ball.addListener('close_start', () => {
+      button.show();
+    });
+
+    this.addChild(ball);
+
+    button.addListener('click', () => {
+      ball.open();
+    });
+    this.addChild(button);
   }
 
   /**

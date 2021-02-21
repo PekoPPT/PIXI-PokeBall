@@ -8,6 +8,7 @@ export default class Pokeball extends Container {
   constructor() {
     super();
     this.name = 'pokeball';
+    this.isOpened = false;
     this.init();
   }
 

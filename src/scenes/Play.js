@@ -23,14 +23,6 @@ export default class Play extends Scene {
       button.show();
     });
 
-    ball.addListener('close_end', () => {
-      ball.isOpened = false;
-    });
-
-    ball.addListener('open_end', () => {
-      ball.isOpened = true;
-    });
-
     this.addChild(ball);
 
     button.addListener('click', () => {

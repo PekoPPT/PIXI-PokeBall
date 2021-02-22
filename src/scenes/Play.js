@@ -18,9 +18,12 @@ export default class Play extends Scene {
     footer.y = window.innerHeight / 2 - footer.height;
     this.addChild(footer);
 
+    ball.addListener('close_start', () => {
+      button.show();
+    });
+
     ball.addListener('close_end', () => {
       ball.isOpened = false;
-      button.show();
     });
 
     ball.addListener('open_end', () => {

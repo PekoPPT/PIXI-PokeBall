@@ -48,7 +48,7 @@ export default class Button extends Container {
    * @memberof Button
    */
   hide() {
-    gsap.to(this, { pixi: { alpha: 0 }, duration: 0.15 });
+    gsap.to(this, { pixi: { alpha: 0 }, duration: 0.05 });
   }
 
   /**
@@ -57,6 +57,6 @@ export default class Button extends Container {
    * @memberof Button
    */
   show() {
-    gsap.to(this, { pixi: { alpha: 1 }, duration: 0.15 });
+    gsap.to(this, { pixi: { alpha: 1 }, duration: 0.05 });
   }
 }

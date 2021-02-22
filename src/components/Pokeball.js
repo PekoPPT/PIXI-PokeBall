@@ -12,6 +12,12 @@ export default class Pokeball extends Container {
     this.init();
   }
 
+  /**
+   * Method that initializes the Pokeball instance.
+   * Adds Pixi Text obejct. Defines the Top and Bottom sprites of the Pokeball
+   *
+   * @memberof Pokeball
+   */
   init() {
 
     this.text = new Text('', {
@@ -34,6 +40,11 @@ export default class Pokeball extends Container {
     this.addChild(this.bottom);
   }
 
+  /**
+   * Opens the Pokeball
+   *
+   * @memberof Pokeball
+   */
   async open() {
     this.emit(Pokeball.events.OPEN_START);
     const timeLine = new gsap.timeline();
@@ -46,6 +57,11 @@ export default class Pokeball extends Container {
     await this.close();
   }
 
+  /**
+   * Closes the Pokeball
+   *
+   * @memberof Pokeball
+   */
   async close() {
     this.emit(Pokeball.events.CLOSE_START);
     const timeLine = new gsap.timeline();
@@ -55,14 +71,33 @@ export default class Pokeball extends Container {
     this.emit(Pokeball.events.CLOSE_END);
   }
 
+  /**
+   * Random text generator.
+   * Used in the _shuffle method
+   *
+   * @return {*} 
+   * @memberof Pokeball
+   */
   _setRandomText() {
     return Math.random().toString(36).substring(2, 15).toUpperCase();
   }
 
+  /**
+   * The events that atr triggered by a Pokeball instance
+   *
+   * @readonly
+   * @static
+   * @memberof Pokeball
+   */
   static get events() {
     return { OPEN_END: 'open_end', OPEN_START: 'open_start', CLOSE_END: 'close_end', CLOSE_START: 'close_start' };
   }
 
+  /**
+   * Creates an animation for random data displayed in the PIXI Text
+   *
+   * @memberof Pokeball
+   */
   async _shuffle() {
     let prev = 0;
 

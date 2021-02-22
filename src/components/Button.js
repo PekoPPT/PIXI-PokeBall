@@ -13,7 +13,7 @@ export default class Button extends Container {
   }
 
   /**
-   * Initializes the button 
+   * Initializes the Shuffle button 
    *
    * @memberof Button
    */
@@ -43,7 +43,7 @@ export default class Button extends Container {
   }
 
   /**
-   * Hides the button
+   * Hides the Shuffle button
    *
    * @memberof Button
    */
@@ -52,7 +52,7 @@ export default class Button extends Container {
   }
 
   /**
-   * Shows the button
+   * Shows the Shuffle button
    *
    * @memberof Button
    */

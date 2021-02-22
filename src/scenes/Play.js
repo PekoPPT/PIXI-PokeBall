@@ -9,6 +9,7 @@ export default class Play extends Scene {
   async onCreated() {
 
     const footer = new Footer();
+
     const ball = new Pokeball();
     const button = new Button();
     button.interactive = true;
